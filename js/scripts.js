@@ -54,16 +54,16 @@ document.addEventListener(
   "click",
   function (event) {
     // If the clicked element doesn't have the right selector, bail
-    if (!event.target.matches("#contactFormBtn")) return;
+    if (!event.target.matches("#submitButton")) return;
 
     // Don't follow the link
     event.preventDefault();
 
     const payload = {
-      name: document.getElementById("form-name")?.value,
-      phone: document.getElementById("form-phone")?.value,
-      email: document.getElementById("form-email")?.value,
-      message: document.getElementById("form-message")?.value,
+      name: document.getElementById("name")?.value,
+      phone: document.getElementById("phone")?.value,
+      email: document.getElementById("email")?.value,
+      message: document.getElementById("message")?.value,
     };
 
     submitContactForm(payload);
@@ -72,18 +72,6 @@ document.addEventListener(
 );
 
 async function submitContactForm(payload) {
-  //   console.log("triggered");
-  //   console.log("event", event);
-
-  //   const payload = {
-  //     name: "Marcello Costaaa",
-  //     email: "marcelloborg0501@gmail.com",
-  //     phone: "999111222",
-  //     message: "IAew, quero um serviço",
-  //   };
-
-  console.log("submitContactForm.payload", payload);
-
   const validate = (payload) => {
     const requiredFields = ["email", "name", "phone"];
 
