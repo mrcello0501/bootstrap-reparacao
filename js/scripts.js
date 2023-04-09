@@ -100,16 +100,13 @@ async function submitContactForm(payload) {
 
   try {
     validate(payload);
-    const response = await fetch(
-      "https://337p90fp34.execute-api.eu-central-1.amazonaws.com/default/feito-reparacoes-send-mail",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      }
-    );
+    const response = await fetch("https://send-mail-app.fly.dev/sendMail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
     console.log("response", await response.json());
   } catch (error) {
     console.log("errow", error);
